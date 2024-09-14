@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to ChoreoIdeas {% endblock %}</h1>
+    {% for ch in choreos %}
+    <a href="#">
+        <h2>{{ ch['title'] }}</h2>
+    </a>
+    <span class="badge badge-primary">{{ ch['members'] }}</span>
+    <hr>
+    {% endfor %}
+{% endblock %}

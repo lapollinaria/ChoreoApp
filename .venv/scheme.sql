@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS gmedium;
+
+CREATE TABLE gmedium (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    members INTEGER NOT NULL
+);
