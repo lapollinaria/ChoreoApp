@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for ch in chor %}
+    <a href="#">
+        <h2>{{ ch['title'] }}</h2>
+    </a>
+    <span class="badge badge-primary">{{ ch['members'] }}</span>
+    <hr>
+    {% endfor %}
+{% endblock %}

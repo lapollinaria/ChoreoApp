@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Create a New Suggestion {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title of the song</label>
+        <input type="text" name="title"
+               placeholder="Artist - Song Title" class="form-control"
+               value="{{ request.form['title'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="members">Number of members</label>
+        <textarea name="members" placeholder="Number"
+                  class="form-control">{{ request.form['members'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
