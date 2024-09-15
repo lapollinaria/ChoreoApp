@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Search by parameters {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="bg">Boys group or Girls group?</label>
+        <input type="text" name="bg"
+               placeholder="boys or girls" class="form-control"
+               value="{{ request.form['bg'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="members">Number of members</label>
+        <input name="members" placeholder="Number"
+                  class="form-control">{{ request.form['members'] }}</input>
+    </div>
+
+    <div class="form-group">
+        <label for="lvl">Level of difficulty</label>
+        <input name="lvl" placeholder="beginner, easy, medium, hard or pro"
+                  class="form-control">{{ request.form['lvl'] }}</input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+{% endblock %}

@@ -52,3 +52,43 @@ def create():
             conn.close()
             return redirect(url_for('index'))
     return render_template('create.html')
+
+
+@app.route('/search', methods=('GET', 'POST'))
+def search():
+    if request.method == 'POST':
+        lvl = request.form['lvl']
+        members = request.form['members']
+        bg = request.form['bg']
+    
+    
+        if (not lvl) or (not bg) or (not members):
+            flash('All fields should be filled!')
+        else:
+            if bg == 'Boys' or bg == 'boys':
+                return redirect(url_for('results', members=members, lvl=lvl, g=False))
+            
+            elif bg == 'Girls' or bg == 'girls':
+                return redirect(url_for('results', members=members, lvl=lvl, g=True))
+        
+    return render_template('search.html')
+
+@app.route('/results/<members>/<lvl>/<g>')
+def results(members, lvl, g):
+      
+    if g:
+        print('true', flush = True)
+        conn = get_db_connection()
+        choreos = conn.execute('SELECT name FROM girls WHERE members=? AND lvl=?',
+                (members,lvl,)).fetchall()
+        conn.close()
+
+        
+    else:
+        conn = get_db_connection()
+        choreos = conn.execute('SELECT name FROM boys WHERE members=? AND lvl=?',
+                (members,lvl,)).fetchall()
+        conn.close()
+        #print(choreos[0], flush = True)
+    
+    return render_template('results.html', choreos=choreos)

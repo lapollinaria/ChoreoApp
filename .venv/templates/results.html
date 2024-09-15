@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %}Here are some ideas for you:{% endblock %}</h1>
+    {% for ch in choreos %}
+    <a href="#">
+        <h2>{{ ch['name'] }}</h2>
+    </a>
+    <hr>
+    {% endfor %}
+    <p><a href="{{ url_for('search') }}"> Go back </a></p>
+{% endblock %}

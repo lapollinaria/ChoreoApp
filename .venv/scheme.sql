@@ -5,3 +5,18 @@ CREATE TABLE gmedium (
     title TEXT NOT NULL,
     members INTEGER NOT NULL
 );
+
+CREATE TABLE girls (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    members INTEGER NOT NULL,
+    lvl TEXT NOT NULL
+);
+
+CREATE TABLE boys (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    members INTEGER NOT NULL,
+    lvl TEXT NOT NULL
+);
+

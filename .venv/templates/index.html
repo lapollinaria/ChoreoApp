@@ -3,11 +3,7 @@
 
 {% block content %}
     <h1>{% block title %} Welcome to ChoreoIdeas {% endblock %}</h1>
-    {% for ch in choreos %}
-    <a href="#">
-        <h2>{{ ch['title'] }}</h2>
-    </a>
-    <span class="badge badge-primary">{{ ch['members'] }}</span>
-    <hr>
-    {% endfor %}
+    <h2> You can search ideas for your next projects here, or submit suggestions if you think something is missing.  </h2>
+    <p><a href="{{ url_for('search') }}"> Search choreos </a></p>
+    <p><a href="{{ url_for('create') }}"> Submit your ideas </a></p>
 {% endblock %}
