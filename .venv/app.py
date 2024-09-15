@@ -11,6 +11,7 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+
 def get_choreos(n_of_m):
     conn = get_db_connection()
     chor = conn.execute('SELECT * FROM gmedium WHERE members=?',
@@ -46,7 +47,7 @@ def create():
             flash('Title is required!')
         else:
             conn = get_db_connection()
-            conn.execute('INSERT INTO suggestions (title, members) VALUES (?, ?)',
+            conn.execute('INSERT INTO suggestions (name, members) VALUES (?, ?)',
                          (title, members))
             conn.commit()
             conn.close()
@@ -66,25 +67,25 @@ def search():
             flash('All fields should be filled!')
         else:
             if bg == 'Boys' or bg == 'boys':
-                return redirect(url_for('results', members=members, lvl=lvl, g=False))
+                return redirect(url_for('results', members=members, lvl=lvl, g=2))
             
             elif bg == 'Girls' or bg == 'girls':
-                return redirect(url_for('results', members=members, lvl=lvl, g=True))
+                return redirect(url_for('results', members=members, lvl=lvl, g=1))
         
     return render_template('search.html')
 
 @app.route('/results/<members>/<lvl>/<g>')
 def results(members, lvl, g):
-      
-    if g:
-        print('true', flush = True)
+
+    g = int(g)
+    if g == 1:
         conn = get_db_connection()
         choreos = conn.execute('SELECT name FROM girls WHERE members=? AND lvl=?',
                 (members,lvl,)).fetchall()
         conn.close()
 
         
-    else:
+    elif g == 2:
         conn = get_db_connection()
         choreos = conn.execute('SELECT name FROM boys WHERE members=? AND lvl=?',
                 (members,lvl,)).fetchall()

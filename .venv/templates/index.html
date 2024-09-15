@@ -3,7 +3,8 @@
 
 {% block content %}
     <h1>{% block title %} Welcome to ChoreoIdeas {% endblock %}</h1>
-    <h2> You can search ideas for your next projects here, or submit suggestions if you think something is missing.  </h2>
+    <h2></h2>
+    <h3> You can search ideas for your next projects here, or submit suggestions if you think something is missing.  </h3>
     <p><a href="{{ url_for('search') }}"> Search choreos </a></p>
     <p><a href="{{ url_for('create') }}"> Submit your ideas </a></p>
 {% endblock %}
