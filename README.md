@@ -18,3 +18,10 @@ The app is functional, but of course there is room for improvement, and the plan
 <li> expanding the knowledge base; </li>
 <li> adding parameters to fine-tune the search; </li>
 <li> improving UX/UI </li>
+
+<p></p>
+
+<h3>Here is a quick demostration: </h3>
+
+![choreoappdemo](https://github.com/user-attachments/assets/e14dafda-6c2c-4c85-8648-454587875837)
+
